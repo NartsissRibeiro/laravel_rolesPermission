@@ -23,7 +23,7 @@ class ProductController extends Controller
         $this->middleware('permission:delete-product', ['only' => ['destroy']]);
     }
 
-    public function index()
+    public function index(): View
     {
         return view('products.index', [
             'products' => Product::latest()->paginate(3)
@@ -51,17 +51,21 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(Product $product): View
     {
-        //
+        return view('products.show', [ 
+            'product' => $product
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(Product $product): View
     {
-        //
+        return view('products.edit', [
+            'product' => $product
+        ]);
     }
 
     /**
@@ -69,7 +73,9 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $product->update($request->all());
+        return redirect()->back()
+                ->withSuccess('Produto atualizado com sucesso.');
     }
 
     /**
@@ -77,6 +83,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('products.index')
+            ->withSuccess('Produto apagado com sucesso.');
     }
 }

@@ -15,8 +15,8 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource([
-    'roles' => RoleController::class,
-    'users' => UserController::class,
-    'products' => ProductController::class,
-]);
+//Route::resource([
+    //'roles' => RoleController::class,
+    //'users' => UserController::class,
+    //'products' => ProductController::class,
+//]);
