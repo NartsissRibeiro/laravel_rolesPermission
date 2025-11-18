@@ -1,54 +1,43 @@
 @extends('layouts.app')
+
 @section('content')
-<div class="card">
-<div class="card-header">Lista de Produtos</div>
-<div class="card-body">
-@can('create-product')
+    <div class="card">
+        <div class="card-header">Lista de Produtos</div>
+        <div class="card-body">
+            @can('create-product')
+                <a href="{{ route('products.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i>
+                Adicionar Novo Produto</a>
+            @endcan
+            <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">S#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($products as $product)
+                    <tr>
+                        <th scope="row">{{ $loop->iteration }}</th>
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->description }}</td>
+                        <td>
+                            <form action="{{ route('products.destroy', $product->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
 
-<a href="{{ route('products.create') }}" class="btn btn-success btn-
-sm my-2"><i class="bi bi-plus-circle"></i>
+                                <a href="{{ route('products.show', $product->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Mostrar</a>
+                                @can('edit-product')
+                                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> 
+                                        Editar</a>
+                                @endcan
 
-Adicionar Novo Produto</a>
-@endcan
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th scope="col">S#</th>
-<th scope="col">Nome</th>
-<th scope="col">Descrição</th>
-<th scope="col">Ação</th>
-</tr>
-</thead>
-<tbody>
-@forelse ($products as $product)
-<tr>
-<th scope="row">{{ $loop->iteration }}</th>
-<td>{{ $product->name }}</td>
-<td>{{ $product->description }}</td>
-<td>
-<form action="{{ route('products.destroy', $product-
->id) }}" method="post">
-@csrf
-
-@method('DELETE')
-
-<a href="{{ route('products.show', $product->id)
-}}" class="btn btn-warning btn-sm"><i
-class="bi bi-eye"></i> Mostrar</a>
-@can('edit-product')
-<a href="{{ route('products.edit', $product-
->id) }}" class="btn btn-primary btn-sm"><i
-class="bi bi-pencil-square"></i>
-Editar</a>
-@endcan
-
-@can('delete-product')
-<!-- Botão que abre a modal -->
-
-<button type="button" class="btn btn-danger
-btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModalProduct{{ $product->id
-}}">
-<i class="bi bi-trash"></i> Deletar
+                                @can('delete-product')
+                                <!-- Botão que abre a modal -->
+                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModalProduct{{ $product->id }}">
+                                    <i class="bi bi-trash"></i> Deletar
 </button>
 <!-- Modal Bootstrap -->
 <div class="modal fade"
