@@ -102,20 +102,21 @@
                     @endif
 
                     <h3 class="text-center mt-3 mb-3">Login, Papéis e Permissões</h3>
-@yield('content')
-<div class="row justify-content-center text-center mt-3">
-<div class="col-md-12">
-<hr>
 
-<p>&copy; 2025 Programação Web III. Todos os direitos
+                    @yield('content')
+                    
+                    <div class="row justify-content-center text-center mt-3">
+                        <div class="col-md-12">
+                            <hr>
+                            <p>&copy; 2025 Programação Web III. Todos os direitos reservados.</p>
+                        </div>
+                    </div>
 
-reservados.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
+                </div>
+            </div>
+        </div>
+    </main>
 </div>
 </body>
+
 </html>
