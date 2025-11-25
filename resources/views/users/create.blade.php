@@ -8,8 +8,7 @@
 Adicionar novo usuário
 </div>
 <div class="float-end">
-<a href="{{ route('users.index') }}" class="btn btn-primary
-btn-sm">&larr; Voltar</a>
+<a href="{{ route('users.index') }}" class="btn btn-primary btn-sm">&larr; Voltar</a>
 </div>
 </div>
 <div class="card-body">
@@ -17,13 +16,10 @@ btn-sm">&larr; Voltar</a>
 @csrf
 <div class="mb-3 row">
 
-<label for="name" class="col-md-4 col-form-label text-md-
-end text-start">Nome</label>
+<label for="name" class="col-md-4 col-form-label text-md-end text-start">Nome</label>
 
 <div class="col-md-6">
-<input type="text" class="form-control @error('name')
-is-invalid @enderror" id="name"
-name="name" value="{{ old('name') }}">
+<input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
 @error('name')
 <span class="text-danger">{{ $message }}</span>
 @enderror
@@ -31,13 +27,10 @@ name="name" value="{{ old('name') }}">
 </div>
 <div class="mb-3 row">
 
-<label for="email" class="col-md-4 col-form-label text-
-md-end text-start">Email</label>
+<label for="email" class="col-md-4 col-form-label text-md-end text-start">Email</label>
 
 <div class="col-md-6">
-<input type="email" class="form-control
-@error('email') is-invalid @enderror" id="email"
-name="email" value="{{ old('email') }}">
+<input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
 @error('email')
 <span class="text-danger">{{ $message }}</span>
 @enderror
@@ -45,49 +38,35 @@ name="email" value="{{ old('email') }}">
 </div>
 </div>
 <div class="mb-3 row">
-<label for="password" class="col-md-4 col-form-label
-text-md-end text-start">Senha</label>
+<label for="password" class="col-md-4 col-form-label text-md-end text-start">Senha</label>
 <div class="col-md-6">
-<input type="password" class="form-control
-@error('password') is-invalid @enderror"
-id="password" name="password">
+<input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
 @error('password')
 <span class="text-danger">{{ $message }}</span>
 @enderror
 </div>
 </div>
 <div class="mb-3 row">
-<label for="password_confirmation"
-
-class="col-md-4 col-form-label text-md-end text-
-start">Confirmar Senha</label>
+<label for="password_confirmation" class="col-md-4 col-form-label text-md-end text-start">Confirmar Senha</label>
 
 <div class="col-md-6">
-<input type="password" class="form-control"
-id="password_confirmation"
-name="password_confirmation">
+<input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
 </div>
 </div>
 <div class="mb-3 row">
 
-<label for="roles" class="col-md-4 col-form-label text-
-md-end text-start">Papéis</label>
+<label for="roles" class="col-md-4 col-form-label text-md-end text-start">Papéis</label>
 
 <div class="col-md-6">
-<select class="form-select @error('roles') is-invalid
-@enderror" multiple aria-label="Roles"
-id="roles" name="roles[]">
+<select class="form-select @error('roles') is-invalid @enderror" multiple aria-label="Roles" id="roles" name="roles[]">
 @forelse ($roles as $role)
 @if ($role != 'Super Admin')
-<option value="{{ $role }}" {{
-in_array($role, old('roles') ?? []) ? 'selected' : '' }}>
+<option value="{{ $role }}" {{ in_array($role, old('roles') ?? []) ? 'selected' : '' }}>
 {{ $role }}
 </option>
 @else
-@if (Auth::user()->hasRole('Super
-Admin'))
-<option value="{{ $role }}" {{
-in_array($role, old('roles') ?? []) ? 'selected' : '' }}>
+@if (Auth::user()->hasRole('SuperAdmin'))
+<option value="{{ $role }}" {{ in_array($role, old('roles') ?? []) ? 'selected' : '' }}>
 {{ $role }}
 </option>
 @endif
@@ -104,8 +83,7 @@ in_array($role, old('roles') ?? []) ? 'selected' : '' }}>
 </div>
 <div class="mb-3 row">
 
-<input type="submit" class="col-md-3 offset-md-5 btn btn-
-primary" value="Adicionar Usuário">
+<input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Adicionar Usuário">
 
 </div>
 </form>

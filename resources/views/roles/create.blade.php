@@ -8,8 +8,7 @@
 Adcionar Novo Papel
 </div>
 <div class="float-end">
-<a href="{{ route('roles.index') }}" class="btn btn-primary
-btn-sm">&larr; Voltar</a>
+<a href="{{ route('roles.index') }}" class="btn btn-primary btn-sm">&larr; Voltar</a>
 </div>
 </div>
 <div class="card-body">
@@ -17,13 +16,10 @@ btn-sm">&larr; Voltar</a>
 @csrf
 <div class="mb-3 row">
 
-<label for="name" class="col-md-4 col-form-label text-md-
-end text-start">Nome</label>
+<label for="name" class="col-md-4 col-form-label text-md-end text-start">Nome</label>
 
 <div class="col-md-6">
-<input type="text" class="form-control @error('name')
-is-invalid @enderror" id="name"
-name="name" value="{{ old('name') }}">
+<input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
 
 @error('name')
 <span class="text-danger">{{ $message }}</span>
@@ -31,21 +27,13 @@ name="name" value="{{ old('name') }}">
 </div>
 </div>
 <div class="mb-3 row">
-<label for="permissions"
-
-class="col-md-4 col-form-label text-md-end text-
-start">Permissão</label>
+<label for="permissions" class="col-md-4 col-form-label text-md-end text-start">Permissão</label>
 
 <div class="col-md-6">
 
-<select class="form-select @error('permissions') is-
-invalid @enderror" multiple
-
-aria-label="Permissions" id="permissions"
-name="permissions[]" style="height: 210px;">
+<select class="form-select @error('permissions') is-invalid @enderror" multiplearia-label="Permissions" id="permissions" name="permissions[]" style="height: 210px;">
 @forelse ($permissions as $permission)
-<option value="{{ $permission->id }}" {{
-in_array($permission->id, old('permissions') ?? []) ? 'selected' : '' }}>
+<option value="{{ $permission->id }}" {{ in_array($permission->id, old('permissions') ?? []) ? 'selected' : '' }}>
 {{ $permission->name }}
 </option>
 @empty
@@ -60,8 +48,7 @@ in_array($permission->id, old('permissions') ?? []) ? 'selected' : '' }}>
 </div>
 <div class="mb-3 row">
 
-<input type="submit" class="col-md-3 offset-md-5 btn btn-
-primary" value="Adcionar Papel">
+<input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Adcionar Papel">
 
 </div>
 </form>

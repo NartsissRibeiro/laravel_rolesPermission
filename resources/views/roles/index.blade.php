@@ -41,42 +41,31 @@ my-2"><i class="bi bi-plus-circle"></i> Adcionar Novo Papel</a>
 
 @if ($role->name != 'Super Admin')
 @can('edit-role')
-<a href="{{ route('roles.edit', $role-
->id) }}" class="btn btn-primary btn-sm"><i
+<a href="{{ route('roles.edit', $role->id) }}" class="btn btn-primary btn-sm"><i
 class="bi bi-pencil-square"></i>
 Editar</a>
 @endcan
 
 @can('delete-role')
-@if ($role->name != Auth::user()-
->hasRole($role->name))
+@if ($role->name != Auth::user()->hasRole($role->name))
 <!-- Botão que abre a modal -->
 
 <button type="button" class="btn btn-
-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModalRole{{ $role->id
-
-}}">
+danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModalRole{{ $role->id }}">
 <i class="bi bi-trash"></i>
 Deletar
 </button>
 <!-- Modal Bootstrap -->
-<div class="modal fade"
+<div class="modal fade" id="deleteModalRole{{ $role->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $role->id }}" aria-hidden="true">
 
-id="deleteModalRole{{ $role->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{
-$role->id }}" aria-hidden="true">
-
-<div class="modal-dialog modal-
-dialog-centered">
+<div class="modal-dialog modal-dialog-centered">
 
 <div class="modal-content">
-<div class="modal-header
-bg-danger text-white">
+<div class="modal-header bg-danger text-white">
 
-<h5 class="modal-
-title" id="deleteModalLabel{{ $role->id }}">Confirmação de Exclusão</h5>
+<h5 class="modal-title" id="deleteModalLabel{{ $role->id }}">Confirmação de Exclusão</h5>
 
-<button type="button"
-class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
 </div>
 
 <div class="modal-body">
@@ -84,13 +73,12 @@ Tem certeza que
 deseja apagar o papel <strong>{{ $role->name }}</strong>?
 </div>
 
-<div class="modal-
-footer">
+<div class="modal-footer">
 
 <button type="button"
 
-class="btn btn-secondary btn-sm" data-bs-dismiss="modal"><i class="bi bi-x-octagon-
-fill"></i> Cancelar</button>
+class="btn btn-secondary btn-sm" data-bs-dismiss="modal"><i class="bi bi-x-octagon-fill">    
+</i> Cancelar</button>
 
 <form action="{{
 route('roles.destroy', $role->id) }}" method="POST" style="display:inline;">

@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Spatie\Permission\Models\Permission;
 
 class PermissionSeeder extends Seeder
@@ -23,7 +23,7 @@ class PermissionSeeder extends Seeder
             'view-product',
             'create-product',
             'edit-product',
-            'delete-product',
+            'delete-product'
         ];
 
         foreach ($permissions as $permission) {

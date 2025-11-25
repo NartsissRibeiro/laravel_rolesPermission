@@ -9,8 +9,7 @@ Adicionar Novo Produto
 </div>
 <div class="float-end">
 
-<a href="{{ route('products.index') }}" class="btn btn-
-primary btn-sm">&larr; Voltar</a>
+<a href="{{ route('products.index') }}" class="btn btn-primary btn-sm">&larr; Voltar</a>
 
 </div>
 </div>
@@ -19,29 +18,20 @@ primary btn-sm">&larr; Voltar</a>
 @csrf
 <div class="mb-3 row">
 
-<label for="name" class="col-md-4 col-form-label text-md-
-end text-start">Nome</label>
+<label for="name" class="col-md-4 col-form-label text-md-end text-start">Nome</label>
 
 <div class="col-md-6">
-<input type="text" class="form-control @error('name')
-is-invalid @enderror" id="name"
-name="name" value="{{ old('name') }}">
+<input type="text" class="form-control @error('name')is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
 @error('name')
 <span class="text-danger">{{ $message }}</span>
 @enderror
 </div>
 </div>
 <div class="mb-3 row">
-<label for="description"
-
-class="col-md-4 col-form-label text-md-end text-
-start">Descrição</label>
+<label for="description" class="col-md-4 col-form-label text-md-end text-start">Descrição</label>
 
 <div class="col-md-6">
-<textarea class="form-control @error('description')
-is-invalid @enderror" id="description"
-name="description">{{ old('description')
-}}</textarea>
+<textarea class="form-control @error('description')is-invalid @enderror" id="description" name="description">{{ old('description')}}</textarea>
 @error('description')
 <span class="text-danger">{{ $message }}</span>
 @enderror
@@ -49,8 +39,7 @@ name="description">{{ old('description')
 </div>
 <div class="mb-3 row">
 
-<input type="submit" class="col-md-3 offset-md-5 btn btn-
-primary" value="Adicionar Produto">
+<input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Adicionar Produto">
 
 </div>
 </form>

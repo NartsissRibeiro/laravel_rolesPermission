@@ -25,17 +25,17 @@ class RoleSeeder extends Seeder
             'delete-user',
             'create-product',
             'edit-product',
-            'delete-product',
+            'delete-product'
         ]);
 
         $productManager->givePermissionTo([
             'create-product',
             'edit-product',
-            'delete-product',
+            'delete-product'
         ]);
 
         $user->givePermissionTo([
-            'view-product',
+            'view-product'
         ]);
     }
 }
