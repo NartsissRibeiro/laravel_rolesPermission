@@ -68,7 +68,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user): RedirectResponse
+    public function edit(User $user): View
     {
         if ($user->hasRole('Super Admin')){
             if($user->id != Auth::id()){
